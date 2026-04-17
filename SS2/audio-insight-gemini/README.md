@@ -2,9 +2,9 @@
 
 A Manifest V3 Chrome extension that detects audio/video on any webpage, transcribes it using Gemini, stores transcripts with AI-generated summaries, and lets you Q&A over them.
 
-Demo
+## Demo
 
-![Demo](https://youtu.be/JnicJGIZrIw)
+https://youtu.be/JnicJGIZrIw
 
 ## Features
 
