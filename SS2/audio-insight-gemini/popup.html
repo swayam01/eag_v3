@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Audio Insight</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div>
+        <h1>🎧 Audio Insight</h1>
+        <p class="subtitle">Transcribe · Summarize · Ask · <em>Made by Swayam ✨</em></p>
+      </div>
+      <label class="theme-toggle" title="Toggle dark mode">
+        <input type="checkbox" id="themeToggle" />
+        <span>Dark</span>
+      </label>
+    </header>
+
+    <nav class="tabs" role="tablist">
+      <button class="tab active" data-tab="detect" role="tab">🔍 Detect</button>
+      <button class="tab" data-tab="library" role="tab">📚 Library <span id="libCountBadge" class="count-pill">0</span></button>
+      <button class="tab" data-tab="ask" role="tab">💬 Ask</button>
+      <button class="tab" data-tab="settings" role="tab">⚙️ Settings</button>
+    </nav>
+
+    <div id="toast" class="toast hidden"></div>
+
+    <!-- DETECT TAB -->
+    <section class="panel active" data-panel="detect">
+      <div class="card">
+        <div class="section-title-row">
+          <h2>🎵 Audio on this page</h2>
+          <button id="rescanBtn" class="ghost small-btn">Rescan</button>
+        </div>
+        <div id="mediaList" class="media-list"></div>
+        <div id="noMedia" class="empty-state hidden">😔 No audio or video found on this page.</div>
+
+        <hr />
+
+        <div class="record-section">
+          <div class="section-title-row">
+            <h3>🎙️ Record from microphone</h3>
+          </div>
+          <p class="hint">Opens a recorder window where you can record, preview, and transcribe.</p>
+          <button id="openRecorderBtn" class="primary">🎤 Open Mic Recorder</button>
+        </div>
+
+        <hr />
+
+        <h3>🔗 Or paste a direct audio URL</h3>
+        <input id="manualAudioUrl" type="text" placeholder="https://example.com/podcast.mp3" />
+        <input id="manualLabel" type="text" placeholder="Label (optional)" />
+        <div class="button-row">
+          <button id="transcribeUrlBtn" class="primary">🚀 Transcribe URL</button>
+        </div>
+
+        <div id="detectStatus" class="status-bar hidden"></div>
+      </div>
+    </section>
+
+    <!-- LIBRARY TAB -->
+    <section class="panel" data-panel="library">
+      <div class="card">
+        <div class="section-title-row">
+          <h2>📝 Saved Transcripts</h2>
+          <span id="libCount" class="count-pill">0</span>
+        </div>
+        <input id="searchInput" type="text" placeholder="Search title, summary, topics, transcript..." />
+        <div id="libraryList" class="library-list"></div>
+        <div id="emptyLib" class="empty-state hidden">🎧 No transcripts saved yet. Go detect some audio!</div>
+      </div>
+    </section>
+
+    <!-- ASK TAB -->
+    <section class="panel" data-panel="ask">
+      <div class="card ask-card">
+        <div class="section-title-row">
+          <h2>🤖 Ask your transcripts</h2>
+          <button id="clearChatBtn" class="ghost small-btn">Clear</button>
+        </div>
+
+        <div class="ask-mode-row">
+          <label>
+            <input type="radio" name="askMode" value="single" checked /> Single transcript
+          </label>
+          <label>
+            <input type="radio" name="askMode" value="all" /> All transcripts
+          </label>
+        </div>
+
+        <select id="transcriptSelect" class="select-input">
+          <option value="">— Pick a transcript —</option>
+        </select>
+
+        <div id="selectedSummary" class="summary-preview hidden"></div>
+
+        <div id="chatMessages" class="chat-messages"></div>
+        <div class="chat-input-row">
+          <textarea id="chatInput" rows="2" placeholder="e.g. What were the main arguments?"></textarea>
+          <button id="askBtn" class="primary">💡 Ask</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SETTINGS TAB -->
+    <section class="panel" data-panel="settings">
+      <div class="card">
+        <h2>⚙️ Settings</h2>
+
+        <label class="label">🔑 Gemini API key</label>
+        <input id="apiKeyInput" type="password" placeholder="Paste your Gemini API key" autocomplete="off" />
+        <p class="hint">Stored in <code>chrome.storage.local</code>. Sent only to Google's Gemini API.</p>
+
+        <label class="label">Model</label>
+        <input id="modelInput" type="text" placeholder="gemini-2.5-flash-lite" />
+        <p class="hint">Default: <code>gemini-2.5-flash-lite</code>. Try <code>gemini-2.5-flash</code> for better transcription quality.</p>
+
+        <div class="button-row">
+          <button id="saveSettingsBtn" class="primary">💾 Save Settings</button>
+          <button id="testKeyBtn" class="ghost">🧪 Test API key</button>
+        </div>
+
+        <div id="settingsStatus" class="status-bar hidden"></div>
+
+        <hr />
+
+        <h3>📦 Data</h3>
+        <div class="button-row">
+          <button id="exportBtn" class="ghost">📥 Export transcripts (JSON)</button>
+          <button id="wipeBtn" class="danger">🗑️ Delete all transcripts</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Library item template -->
+  <template id="libraryItemTpl">
+    <article class="lib-item">
+      <div class="lib-head">
+        <h3 class="lib-title"></h3>
+        <div class="lib-actions">
+          <button class="ghost small-btn ask-single-btn" title="Ask about this transcript">💬</button>
+          <button class="ghost small-btn copy-btn" title="Copy transcript">📋</button>
+          <button class="danger small-btn delete-btn" title="Delete">🗑️</button>
+        </div>
+      </div>
+      <a class="lib-url" target="_blank" rel="noreferrer"></a>
+      <div class="lib-topics"></div>
+      <p class="lib-summary"></p>
+      <div class="lib-keypoints"></div>
+      <details class="lib-transcript-details">
+        <summary>📄 Full transcript</summary>
+        <p class="lib-transcript"></p>
+      </details>
+      <div class="lib-footer"></div>
+    </article>
+  </template>
+
+  <script src="gemini.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
