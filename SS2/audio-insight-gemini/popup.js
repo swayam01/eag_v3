@@ -6,7 +6,6 @@ const STORAGE_KEYS = {
 };
 
 const DEFAULT_MODEL = "gemini-2.5-flash-lite";
-const DEFAULT_API_KEY = "AIzaSyAGEwQCmAj-6PFIcNJNObEHCNof91WBLYk";
 
 const el = {
   themeToggle: document.getElementById("themeToggle"),
@@ -89,11 +88,15 @@ async function loadAll() {
     STORAGE_KEYS.model, STORAGE_KEYS.theme
   ]);
   records = Array.isArray(data[STORAGE_KEYS.records]) ? data[STORAGE_KEYS.records] : [];
-  settings.apiKey = data[STORAGE_KEYS.apiKey] || DEFAULT_API_KEY;
+  settings.apiKey = data[STORAGE_KEYS.apiKey] || "";
   settings.model = data[STORAGE_KEYS.model] || DEFAULT_MODEL;
 
   if (!data[STORAGE_KEYS.apiKey]) {
-    await chrome.storage.local.set({ [STORAGE_KEYS.apiKey]: DEFAULT_API_KEY });
+    const env = await loadEnv();
+    if (env.GEMINI_API_KEY) {
+      settings.apiKey = env.GEMINI_API_KEY;
+      await chrome.storage.local.set({ [STORAGE_KEYS.apiKey]: env.GEMINI_API_KEY });
+    }
   }
 
   const theme = data[STORAGE_KEYS.theme] || "light";

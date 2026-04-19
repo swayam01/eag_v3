@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "Market Pulse — Agentic AI",
+  "version": "1.0.0",
+  "description": "Agentic AI that tracks gold, silver, and USD/INR, correlates moves with news, and sends daily reports to Telegram.",
+  "permissions": ["storage", "alarms", "notifications"],
+  "host_permissions": [
+    "https://generativelanguage.googleapis.com/*",
+    "https://api.gold-api.com/*",
+    "https://open.er-api.com/*",
+    "https://news.google.com/*",
+    "https://api.telegram.org/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Market Pulse",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  }
+}

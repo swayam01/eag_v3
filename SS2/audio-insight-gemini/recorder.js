@@ -4,7 +4,6 @@ const STORAGE_KEYS = {
   model: "audioInsightModel"
 };
 const DEFAULT_MODEL = "gemini-2.5-flash-lite";
-const DEFAULT_API_KEY = "AIzaSyAGEwQCmAj-6PFIcNJNObEHCNof91WBLYk";
 
 const ui = {
   recordBtn: document.getElementById("recordBtn"),
@@ -104,7 +103,11 @@ async function transcribeAndSave() {
   if (!recordedBlob) return;
 
   const data = await chrome.storage.local.get([STORAGE_KEYS.apiKey, STORAGE_KEYS.model]);
-  const apiKey = data[STORAGE_KEYS.apiKey] || DEFAULT_API_KEY;
+  let apiKey = data[STORAGE_KEYS.apiKey];
+  if (!apiKey) {
+    const env = await loadEnv();
+    apiKey = env.GEMINI_API_KEY || "";
+  }
   const model = data[STORAGE_KEYS.model] || DEFAULT_MODEL;
 
   if (!apiKey) {

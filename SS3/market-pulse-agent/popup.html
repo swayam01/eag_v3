@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Market Pulse</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div>
+        <h1>📈 Market Pulse</h1>
+        <p class="subtitle">Agentic AI · <em>Made by Swayam ✨</em></p>
+      </div>
+      <label class="theme-toggle" title="Toggle dark mode">
+        <input type="checkbox" id="themeToggle" />
+        <span>Dark</span>
+      </label>
+    </header>
+
+    <nav class="tabs">
+      <button class="tab active" data-tab="run">🚀 Run</button>
+      <button class="tab" data-tab="history">📚 History <span id="historyBadge" class="count-pill">0</span></button>
+      <button class="tab" data-tab="schedule">⏰ Schedule</button>
+      <button class="tab" data-tab="settings">⚙️ Settings</button>
+    </nav>
+
+    <div id="toast" class="toast hidden"></div>
+
+    <!-- RUN TAB -->
+    <section class="panel active" data-panel="run">
+      <div class="card">
+        <div class="section-title-row">
+          <h2>🧠 Agent Run</h2>
+          <button id="runBtn" class="primary">Run Now</button>
+        </div>
+        <p class="hint">Kicks off the agent: fetch prices → compute changes → fetch news for movers → write report → Telegram.</p>
+
+        <label class="label">Prompt (override, optional)</label>
+        <textarea id="promptInput" rows="2" placeholder="Leave blank for default daily briefing. Or try: 'Focus on gold only today.'"></textarea>
+
+        <div id="runStatus" class="status-bar hidden"></div>
+
+        <h3>Reasoning trace</h3>
+        <div id="traceContainer" class="trace-container">
+          <div class="empty-state">No run yet. Click <b>Run Now</b> to start.</div>
+        </div>
+
+        <h3>Final report</h3>
+        <div id="finalReport" class="final-report empty-state">—</div>
+      </div>
+    </section>
+
+    <!-- HISTORY TAB -->
+    <section class="panel" data-panel="history">
+      <div class="card">
+        <div class="section-title-row">
+          <h2>📚 Past Runs</h2>
+          <button id="clearHistoryBtn" class="ghost small-btn">Clear</button>
+        </div>
+        <div id="historyList" class="history-list"></div>
+        <div id="emptyHistory" class="empty-state hidden">No past runs yet.</div>
+      </div>
+    </section>
+
+    <!-- SCHEDULE TAB -->
+    <section class="panel" data-panel="schedule">
+      <div class="card">
+        <h2>⏰ Daily Schedule</h2>
+        <p class="hint">Alarms only fire while Chrome is running. If Chrome is closed at the scheduled time, the alarm fires when you next open it.</p>
+
+        <label class="switch-row">
+          <input id="scheduleEnabled" type="checkbox" />
+          <span>Run daily</span>
+        </label>
+
+        <label class="label">Time (24h, local)</label>
+        <input id="scheduleTime" type="time" value="09:00" />
+
+        <div class="button-row">
+          <button id="saveScheduleBtn" class="primary">💾 Save schedule</button>
+        </div>
+
+        <div id="scheduleStatus" class="status-bar hidden"></div>
+
+        <hr />
+        <h3>Next fire</h3>
+        <div id="nextFire" class="meta-box">—</div>
+      </div>
+    </section>
+
+    <!-- SETTINGS TAB -->
+    <section class="panel" data-panel="settings">
+      <div class="card">
+        <h2>⚙️ Settings</h2>
+
+        <label class="label">🔑 Gemini API key</label>
+        <input id="apiKeyInput" type="password" placeholder="Paste your Gemini API key" autocomplete="off" />
+
+        <label class="label">Model</label>
+        <input id="modelInput" type="text" placeholder="gemini-2.5-flash" />
+        <p class="hint">Function calling needs at least <code>gemini-2.5-flash</code>. Flash Lite models may not support tools reliably.</p>
+
+        <hr />
+
+        <h3>💬 Telegram</h3>
+        <p class="hint">Create a bot via <code>@BotFather</code>, send any message to your bot, then get your chat ID from <code>https://api.telegram.org/bot&lt;TOKEN&gt;/getUpdates</code>.</p>
+
+        <label class="label">Bot token</label>
+        <input id="tgTokenInput" type="password" placeholder="123456:ABC..." autocomplete="off" />
+
+        <label class="label">Chat ID</label>
+        <input id="tgChatIdInput" type="text" placeholder="e.g. 123456789" />
+
+        <div class="button-row">
+          <button id="saveSettingsBtn" class="primary">💾 Save Settings</button>
+          <button id="testTelegramBtn" class="ghost">🧪 Test Telegram</button>
+        </div>
+
+        <div id="settingsStatus" class="status-bar hidden"></div>
+
+        <hr />
+        <h3>📦 Data</h3>
+        <div class="button-row">
+          <button id="exportBtn" class="ghost">📥 Export (JSON)</button>
+          <button id="wipeHistoryBtn" class="danger">🗑️ Wipe price history</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script type="module" src="popup.js"></script>
+</body>
+</html>
