@@ -2,6 +2,10 @@
 
 A Manifest V3 Chrome extension where a Gemini-powered agent fetches gold, silver, and USD/INR prices, fetches news to explain significant moves, writes a narrative report, and delivers it to your Telegram — all autonomously, with every step visible in the UI.
 
+## Demo
+
+https://youtu.be/JnicJGIZrIw
+
 ## What makes it *agentic*
 
 The LLM is not called once. It loops:
