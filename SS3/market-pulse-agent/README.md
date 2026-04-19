@@ -4,7 +4,7 @@ A Manifest V3 Chrome extension where a Gemini-powered agent fetches gold, silver
 
 ## Demo
 
-https://youtu.be/JnicJGIZrIw
+[https://youtu.be/JnicJGIZrIw](https://youtu.be/2QRMkW3U34w)
 
 ## What makes it *agentic*
 
