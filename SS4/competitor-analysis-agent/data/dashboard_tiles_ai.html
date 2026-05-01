@@ -1,0 +1,1130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Competitor Analysis</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/npm/@prefecthq/prefab-ui@0.19.1/dist/app/renderer.css">
+  <script type="module" crossorigin src="https://cdn.jsdelivr.net/npm/@prefecthq/prefab-ui@0.19.1/dist/app/renderer.js"></script>
+</head>
+<body>
+  <div id="root" style="max-width:64rem;margin:0 auto;padding:2rem"></div>
+  <script id="prefab:initial-data" type="application/json">{
+  "$prefab": {
+    "version": "0.2"
+  },
+  "view": {
+    "cssClass": "pf-app-root",
+    "type": "Div",
+    "children": [
+      {
+        "cssClass": "max-w-[1400px] mx-auto p-6 bg-slate-100 min-h-screen",
+        "type": "Container",
+        "children": [
+          {
+            "cssClass": "gap-6",
+            "type": "Column",
+            "children": [
+              {
+                "cssClass": "items-baseline gap-3",
+                "type": "Row",
+                "children": [
+                  {
+                    "cssClass": "text-2xl font-bold text-slate-900",
+                    "content": "Competitor Analysis: Tile Vision AI",
+                    "type": "H1"
+                  },
+                  {
+                    "content": "5 competitor(s)",
+                    "type": "Muted"
+                  }
+                ]
+              },
+              {
+                "cssClass": "border-indigo-200 bg-white shadow-sm",
+                "type": "Card",
+                "children": [
+                  {
+                    "type": "CardHeader",
+                    "children": [
+                      {
+                        "cssClass": "gap-3 items-center",
+                        "type": "Row",
+                        "children": [
+                          {
+                            "type": "Badge",
+                            "label": "Your Product",
+                            "variant": "info"
+                          },
+                          {
+                            "type": "CardTitle",
+                            "content": "Tile Vision AI"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "CardContent",
+                    "children": [
+                      {
+                        "cssClass": "gap-4",
+                        "type": "Column",
+                        "children": [
+                          {
+                            "content": "An AI-powered tool to visualize new tile installations in your room.",
+                            "type": "Muted"
+                          },
+                          {
+                            "cssClass": "gap-6 flex-wrap",
+                            "type": "Row",
+                            "children": [
+                              {
+                                "cssClass": "gap-1 min-w-[160px]",
+                                "type": "Column",
+                                "children": [
+                                  {
+                                    "cssClass": "text-xs uppercase tracking-wide text-slate-500",
+                                    "type": "Label",
+                                    "text": "Category",
+                                    "optional": false
+                                  },
+                                  {
+                                    "cssClass": "text-sm font-medium text-slate-900",
+                                    "content": "\u2014",
+                                    "type": "Text"
+                                  }
+                                ]
+                              },
+                              {
+                                "cssClass": "gap-1 min-w-[160px]",
+                                "type": "Column",
+                                "children": [
+                                  {
+                                    "cssClass": "text-xs uppercase tracking-wide text-slate-500",
+                                    "type": "Label",
+                                    "text": "Target market",
+                                    "optional": false
+                                  },
+                                  {
+                                    "cssClass": "text-sm font-medium text-slate-900",
+                                    "content": "\u2014",
+                                    "type": "Text"
+                                  }
+                                ]
+                              },
+                              {
+                                "cssClass": "gap-1 min-w-[160px]",
+                                "type": "Column",
+                                "children": [
+                                  {
+                                    "cssClass": "text-xs uppercase tracking-wide text-slate-500",
+                                    "type": "Label",
+                                    "text": "Pricing",
+                                    "optional": false
+                                  },
+                                  {
+                                    "cssClass": "text-sm font-medium text-slate-900",
+                                    "content": "\u2014",
+                                    "type": "Text"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "cssClass": "text-indigo-600 underline text-sm",
+                            "content": "https://swayam01.github.io/tile-vision-website/",
+                            "type": "Text"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "cssClass": "bg-white shadow-sm",
+                "type": "Card",
+                "children": [
+                  {
+                    "type": "CardHeader",
+                    "children": [
+                      {
+                        "type": "CardTitle",
+                        "content": "Feature & pricing comparison"
+                      },
+                      {
+                        "content": "5 competitor(s) tracked.",
+                        "type": "Muted"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "CardContent",
+                    "children": [
+                      {
+                        "cssClass": "text-sm [&_td]:align-top [&_td]:whitespace-normal [&_td]:break-words [&_td]:py-3 [&_th]:py-3",
+                        "type": "DataTable",
+                        "columns": [
+                          {
+                            "key": "name",
+                            "header": "Name",
+                            "sortable": true,
+                            "width": "140px"
+                          },
+                          {
+                            "key": "headquarters",
+                            "header": "HQ",
+                            "sortable": true,
+                            "width": "160px"
+                          },
+                          {
+                            "key": "pricing",
+                            "header": "Pricing",
+                            "sortable": false,
+                            "width": "260px"
+                          },
+                          {
+                            "key": "features",
+                            "header": "Top features",
+                            "sortable": false,
+                            "width": "360px"
+                          },
+                          {
+                            "key": "target_market",
+                            "header": "Target market",
+                            "sortable": false,
+                            "width": "240px"
+                          },
+                          {
+                            "key": "last_updated",
+                            "header": "Updated",
+                            "sortable": true,
+                            "width": "110px"
+                          }
+                        ],
+                        "rows": [
+                          {
+                            "name": "TilesView",
+                            "headquarters": "Rajkot, Gujarat, India",
+                            "pricing": "Basic \u20b91,999/mo (350 SKUs), Standard \u20b94,999/mo (1,100 SKUs), Premium \u20b96,999/mo (2,000 SKUs). 50% discount on annual plans. 14-day free trial, no credit card required.",
+                            "features": "360 Panorama, Catalog PDF generation, Website Integration, Snap - Select - Visualize, Interactive Kiosk, QR Code generation, Does not appear to automatically generate virtual tours from a single 2D image.",
+                            "target_market": "Manufacturers, Distributors, Wholesalers, Offline Retailers, E-Commerce, Enterprise Companies, Importers/Exporters, Tile Designers, Digital Media Marketers, Sales Professionals",
+                            "last_updated": "2026-05-01"
+                          },
+                          {
+                            "name": "Roomvo",
+                            "headquarters": "Toronto, Ontario, Canada",
+                            "pricing": "Pricing is not publicly available, but testimonials suggest it is a B2B solution with enterprise-level pricing.",
+                            "features": "Multi-surface visualization (Flooring, Tile, Paint, Exteriors, Wallpaper, Rugs, Countertops, Furnishings), Virtual Samples, In-store Kiosk, Partner Program, Studio, Does not appear to automatically generate virtual tours from a single 2D image.",
+                            "target_market": "Manufacturers, Independent Retailers, Large Retailers, Distributors, Real Estate",
+                            "last_updated": "2026-05-01"
+                          },
+                          {
+                            "name": "Wizart",
+                            "headquarters": "Wilmington, Delaware, United States",
+                            "pricing": "Tiered pricing model with a 14-day free trial. Plans start at $59/month for 1,500 SKUs and 5,000 renders. Higher tiers offer more SKUs, renders, and features.",
+                            "features": "AI Visualizer for various surfaces (Walls, Wall Panels, Wallpaper, Paint, Tile, Flooring, Ceiling, Carpet, Rug, Art), MaterialCloud, Render Pack, Product Videos, Product Specifications, API, Shopify and Wordpress plugins, Allows users to upload a photo of their own wall to visualize products, but does not explicitly mention automated virtual tour generation.",
+                            "target_market": "Manufacturers, Distributors, E-commerce, Offline Retail, Agencies & Web Studios",
+                            "last_updated": "2026-05-01"
+                          },
+                          {
+                            "name": "Nirwana AI",
+                            "headquarters": "New Delhi, India",
+                            "pricing": "Pricing is not publicly available.",
+                            "features": "Visualizers for Marble, Tile, Wallpaper, Panels, Curtains, and Rugs, Supports uploading user's own room photos, AI automatically identifies surfaces, lighting, and shadows to place products in a user's photo with high realism, which is very close to the requested feature.",
+                            "target_market": "Manufacturing Industries, Large Retailers, E-Commerce, Architects & Designers",
+                            "last_updated": "2026-05-01"
+                          },
+                          {
+                            "name": "RoomGPT",
+                            "headquarters": "New Jersey, United States",
+                            "pricing": "Freemium model. Free for 2 redesigns/month. Paid plans are available, with one source mentioning $5.99/week.",
+                            "features": "AI Interior Designer, Photo-based Redesign, Transforms a room from a single photo, which is very close to the requested feature.",
+                            "target_market": "Homeowners, Renters, DIY Decorators",
+                            "last_updated": "2026-05-01"
+                          }
+                        ],
+                        "search": true,
+                        "paginated": false,
+                        "pageSize": 10
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "cssClass": "text-slate-900 font-semibold mb-3",
+                "content": "Competitor profiles",
+                "type": "H3"
+              },
+              {
+                "cssClass": "space-y-2",
+                "type": "Accordion",
+                "multiple": true,
+                "collapsible": true,
+                "children": [
+                  {
+                    "type": "AccordionItem",
+                    "title": "TilesView  \u00b7  Basic \u20b91,999/mo (350 SKUs), Standard \u20b94,999/mo (1,100 SKUs)\u2026  \u00b7  Rajkot, Gujarat, India",
+                    "children": [
+                      {
+                        "cssClass": "gap-4 pt-2",
+                        "type": "Column",
+                        "children": [
+                          {
+                            "cssClass": "text-sm text-slate-700",
+                            "content": "An AI-powered tool for multi-surface visualization - wall, flooring, rug, paint color, tiles, wallpaper, carpet, and more.",
+                            "type": "Text"
+                          },
+                          {
+                            "cssClass": "gap-6 flex-wrap",
+                            "type": "Row",
+                            "children": [
+                              {
+                                "cssClass": "gap-1 min-w-[220px] flex-1",
+                                "type": "Column",
+                                "children": [
+                                  {
+                                    "cssClass": "text-xs uppercase tracking-wide text-emerald-700",
+                                    "type": "Label",
+                                    "text": "Strengths",
+                                    "optional": false
+                                  },
+                                  {
+                                    "cssClass": "text-sm text-slate-800",
+                                    "content": "\u2022 Wide range of supported materials (tiles, flooring, paint, etc.)",
+                                    "type": "Text"
+                                  },
+                                  {
+                                    "cssClass": "text-sm text-slate-800",
+                                    "content": "\u2022 Targets a broad range of customers (manufacturers, retailers, designers)",
+                                    "type": "Text"
+                                  },
+                                  {
+                                    "cssClass": "text-sm text-slate-800",
+                                    "content": "\u2022 Comprehensive feature set",
+                                    "type": "Text"
+                                  },
+                                  {
+                                    "cssClass": "text-sm text-slate-800",
+                                    "content": "\u2022 Transparent INR-denominated pricing on /packages page",
+                                    "type": "Text"
+                                  }
+                                ]
+                              },
+                              {
+                                "cssClass": "gap-1 min-w-[220px] flex-1",
+                                "type": "Column",
+                                "children": [
+                                  {
+                                    "cssClass": "text-xs uppercase tracking-wide text-rose-700",
+                                    "type": "Label",
+                                    "text": "Weaknesses",
+                                    "optional": false
+                                  },
+                                  {
+                                    "cssClass": "text-sm text-slate-800",
+                                    "content": "\u2022 Pricing not surfaced on the homepage (buried under /packages)",
+                                    "type": "Text"
+                                  },
+                                  {
+                                    "cssClass": "text-sm text-slate-800",
+                                    "content": "\u2022 INR-only pricing may complicate global enterprise procurement",
+                                    "type": "Text"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "cssClass": "gap-6 flex-wrap",
+                            "type": "Row",
+                            "children": [
+                              {
+                                "cssClass": "gap-1 min-w-[220px] flex-1",
+                                "type": "Column",
+                                "children": [
+                                  {
+                                    "cssClass": "text-xs uppercase tracking-wide text-indigo-700",
+                                    "type": "Label",
+                                    "text": "Features",
+                                    "optional": false
+                                  },
+                                  {
+                                    "cssClass": "text-sm text-slate-800",
+                                    "content": "\u2022 360 Panorama",
+                                    "type": "Text"
+                                  },
+                                  {
+                                    "cssClass": "text-sm text-slate-800",
+                                    "content": "\u2022 Catalog PDF generation",
+                                    "type": "Text"
+                                  },
+                                  {
+                                    "cssClass": "text-sm text-slate-800",
+                                    "content": "\u2022 Website Integration",
+                                    "type": "Text"
+                                  },
+                                  {
+                                    "cssClass": "text-sm text-slate-800",
+                                    "content": "\u2022 Snap - Select - Visualize",
+                                    "type": "Text"
+                                  },
+                                  {
+                                    "cssClass": "text-sm text-slate-800",
+                                    "content": "\u2022 Interactive Kiosk",
+                                    "type": "Text"
+                                  },
+                                  {
+                                    "cssClass": "text-sm text-slate-800",
+                                    "content": "\u2022 QR Code generation",
+                                    "type": "Text"
+                                  },
+                                  {
+                                    "cssClass": "text-sm text-slate-800",
+                                    "content": "\u2022 Does not appear to automatically generate virtual tours from a single 2D image.",
+                                    "type": "Text"
+                                  }
+                                ]
+                              },
+                              {
+                                "cssClass": "gap-1 min-w-[220px] flex-1",
+                                "type": "Column",
+                                "children": [
+                                  {
+                                    "cssClass": "text-xs uppercase tracking-wide text-slate-700",
+                                    "type": "Label",
+                                    "text": "Target market",
+                                    "optional": false
+                                  },
+                                  {
+                                    "cssClass": "text-sm text-slate-800",
+                                    "content": "\u2022 Manufacturers, Distributors, Wholesalers, Offline Retailers, E-Commerce, Enterprise Companies, Importers/Exporters, Tile Designers, Digital Media Marketers, Sales Professionals",
+                                    "type": "Text"
+                                  }
+                                ]
+                              },
+                              {
+                                "cssClass": "gap-1 min-w-[220px] flex-1",
+                                "type": "Column",
+                                "children": [
+                                  {
+                                    "cssClass": "text-xs uppercase tracking-wide text-slate-700",
+                                    "type": "Label",
+                                    "text": "Headquarters",
+                                    "optional": false
+                                  },
+                                  {
+                                    "cssClass": "text-sm text-slate-800",
+                                    "content": "\u2022 Rajkot, Gujarat, India",
+                                    "type": "Text"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "cssClass": "text-indigo-600 underline text-sm",
+                            "content": "https://tilesview.ai/",
+                            "type": "Text"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "AccordionItem",
+                    "title": "Roomvo  \u00b7  Pricing is not publicly available, but testimonials suggest\u2026  \u00b7  Toronto, Ontario, Canada",
+                    "children": [
+                      {
+                        "cssClass": "gap-4 pt-2",
+                        "type": "Column",
+                        "children": [
+                          {
+                            "cssClass": "text-sm text-slate-700",
+                            "content": "A room visualization platform that allows shoppers to see products in their own space with a high level of realism.",
+                            "type": "Text"
+                          },
+                          {
+                            "cssClass": "gap-6 flex-wrap",
+                            "type": "Row",
+                            "children": [
+                              {
+                                "cssClass": "gap-1 min-w-[220px] flex-1",
+                                "type": "Column",
+                                "children": [
+                                  {
+                                    "cssClass": "text-xs uppercase tracking-wide text-emerald-700",
+                                    "type": "Label",
+                                    "text": "Strengths",
+                                    "optional": false
+                                  },
+                                  {
+                                    "cssClass": "text-sm text-slate-800",
+                                    "content": "\u2022 Supports a wide variety of surfaces.",
+                                    "type": "Text"
+                                  },
+                                  {
+                                    "cssClass": "text-sm text-slate-800",
+                                    "content": "\u2022 Strong focus on B2B and enterprise clients.",
+                                    "type": "Text"
+                                  },
+                                  {
+                                    "cssClass": "text-sm text-slate-800",
+                                    "content": "\u2022 Claims to increase conversions by 5x.",
+                                    "type": "Text"
+                                  }
+                                ]
+                              },
+                              {
+                                "cssClass": "gap-1 min-w-[220px] flex-1",
+                                "type": "Column",
+                                "children": [
+                                  {
+                                    "cssClass": "text-xs uppercase tracking-wide text-rose-700",
+                                    "type": "Label",
+                                    "text": "Weaknesses",
+                                    "optional": false
+                                  },
+                                  {
+                                    "cssClass": "text-sm text-slate-800",
+                                    "content": "\u2022 Pricing is not transparent, which could be a barrier for smaller businesses.",
+                                    "type": "Text"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "cssClass": "gap-6 flex-wrap",
+                            "type": "Row",
+                            "children": [
+                              {
+                                "cssClass": "gap-1 min-w-[220px] flex-1",
+                                "type": "Column",
+                                "children": [
+                                  {
+                                    "cssClass": "text-xs uppercase tracking-wide text-indigo-700",
+                                    "type": "Label",
+                                    "text": "Features",
+                                    "optional": false
+                                  },
+                                  {
+                                    "cssClass": "text-sm text-slate-800",
+                                    "content": "\u2022 Multi-surface visualization (Flooring, Tile, Paint, Exteriors, Wallpaper, Rugs, Countertops, Furnishings)",
+                                    "type": "Text"
+                                  },
+                                  {
+                                    "cssClass": "text-sm text-slate-800",
+                                    "content": "\u2022 Virtual Samples",
+                                    "type": "Text"
+                                  },
+                                  {
+                                    "cssClass": "text-sm text-slate-800",
+                                    "content": "\u2022 In-store Kiosk",
+                                    "type": "Text"
+                                  },
+                                  {
+                                    "cssClass": "text-sm text-slate-800",
+                                    "content": "\u2022 Partner Program",
+                                    "type": "Text"
+                                  },
+                                  {
+                                    "cssClass": "text-sm text-slate-800",
+                                    "content": "\u2022 Studio",
+                                    "type": "Text"
+                                  },
+                                  {
+                                    "cssClass": "text-sm text-slate-800",
+                                    "content": "\u2022 Does not appear to automatically generate virtual tours from a single 2D image.",
+                                    "type": "Text"
+                                  }
+                                ]
+                              },
+                              {
+                                "cssClass": "gap-1 min-w-[220px] flex-1",
+                                "type": "Column",
+                                "children": [
+                                  {
+                                    "cssClass": "text-xs uppercase tracking-wide text-slate-700",
+                                    "type": "Label",
+                                    "text": "Target market",
+                                    "optional": false
+                                  },
+                                  {
+                                    "cssClass": "text-sm text-slate-800",
+                                    "content": "\u2022 Manufacturers, Independent Retailers, Large Retailers, Distributors, Real Estate",
+                                    "type": "Text"
+                                  }
+                                ]
+                              },
+                              {
+                                "cssClass": "gap-1 min-w-[220px] flex-1",
+                                "type": "Column",
+                                "children": [
+                                  {
+                                    "cssClass": "text-xs uppercase tracking-wide text-slate-700",
+                                    "type": "Label",
+                                    "text": "Headquarters",
+                                    "optional": false
+                                  },
+                                  {
+                                    "cssClass": "text-sm text-slate-800",
+                                    "content": "\u2022 Toronto, Ontario, Canada",
+                                    "type": "Text"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "cssClass": "text-indigo-600 underline text-sm",
+                            "content": "https://roomvo.com/",
+                            "type": "Text"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "AccordionItem",
+                    "title": "Wizart  \u00b7  Tiered pricing model with a 14-day free trial. Plans start \u2026  \u00b7  Wilmington, Delaware, United States",
+                    "children": [
+                      {
+                        "cssClass": "gap-4 pt-2",
+                        "type": "Column",
+                        "children": [
+                          {
+                            "cssClass": "text-sm text-slate-700",
+                            "content": "An AI product visualization platform that helps boost revenue for businesses in the home decor industry.",
+                            "type": "Text"
+                          },
+                          {
+                            "cssClass": "gap-6 flex-wrap",
+                            "type": "Row",
+                            "children": [
+                              {
+                                "cssClass": "gap-1 min-w-[220px] flex-1",
+                                "type": "Column",
+                                "children": [
+                                  {
+                                    "cssClass": "text-xs uppercase tracking-wide text-emerald-700",
+                                    "type": "Label",
+                                    "text": "Strengths",
+                                    "optional": false
+                                  },
+                                  {
+                                    "cssClass": "text-sm text-slate-800",
+                                    "content": "\u2022 Transparent and flexible pricing.",
+                                    "type": "Text"
+                                  },
+                                  {
+                                    "cssClass": "text-sm text-slate-800",
+                                    "content": "\u2022 Comprehensive set of features, including a variety of visualizers and integrations.",
+                                    "type": "Text"
+                                  },
+                                  {
+                                    "cssClass": "text-sm text-slate-800",
+                                    "content": "\u2022 Strong focus on e-commerce with Shopify and Wordpress plugins.",
+                                    "type": "Text"
+                                  }
+                                ]
+                              },
+                              {
+                                "cssClass": "gap-1 min-w-[220px] flex-1",
+                                "type": "Column",
+                                "children": [
+                                  {
+                                    "cssClass": "text-xs uppercase tracking-wide text-rose-700",
+                                    "type": "Label",
+                                    "text": "Weaknesses",
+                                    "optional": false
+                                  },
+                                  {
+                                    "cssClass": "text-sm text-slate-800",
+                                    "content": "\u2022 The pricing model, while transparent, might be complex for some users to understand.",
+                                    "type": "Text"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "cssClass": "gap-6 flex-wrap",
+                            "type": "Row",
+                            "children": [
+                              {
+                                "cssClass": "gap-1 min-w-[220px] flex-1",
+                                "type": "Column",
+                                "children": [
+                                  {
+                                    "cssClass": "text-xs uppercase tracking-wide text-indigo-700",
+                                    "type": "Label",
+                                    "text": "Features",
+                                    "optional": false
+                                  },
+                                  {
+                                    "cssClass": "text-sm text-slate-800",
+                                    "content": "\u2022 AI Visualizer for various surfaces (Walls, Wall Panels, Wallpaper, Paint, Tile, Flooring, Ceiling, Carpet, Rug, Art)",
+                                    "type": "Text"
+                                  },
+                                  {
+                                    "cssClass": "text-sm text-slate-800",
+                                    "content": "\u2022 MaterialCloud",
+                                    "type": "Text"
+                                  },
+                                  {
+                                    "cssClass": "text-sm text-slate-800",
+                                    "content": "\u2022 Render Pack",
+                                    "type": "Text"
+                                  },
+                                  {
+                                    "cssClass": "text-sm text-slate-800",
+                                    "content": "\u2022 Product Videos",
+                                    "type": "Text"
+                                  },
+                                  {
+                                    "cssClass": "text-sm text-slate-800",
+                                    "content": "\u2022 Product Specifications",
+                                    "type": "Text"
+                                  },
+                                  {
+                                    "cssClass": "text-sm text-slate-800",
+                                    "content": "\u2022 API",
+                                    "type": "Text"
+                                  },
+                                  {
+                                    "cssClass": "text-sm text-slate-800",
+                                    "content": "\u2022 Shopify and Wordpress plugins",
+                                    "type": "Text"
+                                  },
+                                  {
+                                    "cssClass": "text-sm text-slate-800",
+                                    "content": "\u2022 Allows users to upload a photo of their own wall to visualize products, but does not explicitly mention automated virtual tour generation.",
+                                    "type": "Text"
+                                  }
+                                ]
+                              },
+                              {
+                                "cssClass": "gap-1 min-w-[220px] flex-1",
+                                "type": "Column",
+                                "children": [
+                                  {
+                                    "cssClass": "text-xs uppercase tracking-wide text-slate-700",
+                                    "type": "Label",
+                                    "text": "Target market",
+                                    "optional": false
+                                  },
+                                  {
+                                    "cssClass": "text-sm text-slate-800",
+                                    "content": "\u2022 Manufacturers, Distributors, E-commerce, Offline Retail, Agencies & Web Studios",
+                                    "type": "Text"
+                                  }
+                                ]
+                              },
+                              {
+                                "cssClass": "gap-1 min-w-[220px] flex-1",
+                                "type": "Column",
+                                "children": [
+                                  {
+                                    "cssClass": "text-xs uppercase tracking-wide text-slate-700",
+                                    "type": "Label",
+                                    "text": "Headquarters",
+                                    "optional": false
+                                  },
+                                  {
+                                    "cssClass": "text-sm text-slate-800",
+                                    "content": "\u2022 Wilmington, Delaware, United States",
+                                    "type": "Text"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "cssClass": "text-indigo-600 underline text-sm",
+                            "content": "https://wizart.ai/",
+                            "type": "Text"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "AccordionItem",
+                    "title": "Nirwana AI  \u00b7  Pricing is not publicly available.  \u00b7  New Delhi, India",
+                    "children": [
+                      {
+                        "cssClass": "gap-4 pt-2",
+                        "type": "Column",
+                        "children": [
+                          {
+                            "cssClass": "text-sm text-slate-700",
+                            "content": "An AI-powered visualization platform for brands in the home decor industry.",
+                            "type": "Text"
+                          },
+                          {
+                            "cssClass": "gap-6 flex-wrap",
+                            "type": "Row",
+                            "children": [
+                              {
+                                "cssClass": "gap-1 min-w-[220px] flex-1",
+                                "type": "Column",
+                                "children": [
+                                  {
+                                    "cssClass": "text-xs uppercase tracking-wide text-emerald-700",
+                                    "type": "Label",
+                                    "text": "Strengths",
+                                    "optional": false
+                                  },
+                                  {
+                                    "cssClass": "text-sm text-slate-800",
+                                    "content": "\u2022 Supports a variety of materials, including curtains and rugs.",
+                                    "type": "Text"
+                                  },
+                                  {
+                                    "cssClass": "text-sm text-slate-800",
+                                    "content": "\u2022 Strong focus on user-uploaded photos for personalization.",
+                                    "type": "Text"
+                                  }
+                                ]
+                              },
+                              {
+                                "cssClass": "gap-1 min-w-[220px] flex-1",
+                                "type": "Column",
+                                "children": [
+                                  {
+                                    "cssClass": "text-xs uppercase tracking-wide text-rose-700",
+                                    "type": "Label",
+                                    "text": "Weaknesses",
+                                    "optional": false
+                                  },
+                                  {
+                                    "cssClass": "text-sm text-slate-800",
+                                    "content": "\u2022 Pricing information is not publicly available.",
+                                    "type": "Text"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "cssClass": "gap-6 flex-wrap",
+                            "type": "Row",
+                            "children": [
+                              {
+                                "cssClass": "gap-1 min-w-[220px] flex-1",
+                                "type": "Column",
+                                "children": [
+                                  {
+                                    "cssClass": "text-xs uppercase tracking-wide text-indigo-700",
+                                    "type": "Label",
+                                    "text": "Features",
+                                    "optional": false
+                                  },
+                                  {
+                                    "cssClass": "text-sm text-slate-800",
+                                    "content": "\u2022 Visualizers for Marble, Tile, Wallpaper, Panels, Curtains, and Rugs",
+                                    "type": "Text"
+                                  },
+                                  {
+                                    "cssClass": "text-sm text-slate-800",
+                                    "content": "\u2022 Supports uploading user's own room photos",
+                                    "type": "Text"
+                                  },
+                                  {
+                                    "cssClass": "text-sm text-slate-800",
+                                    "content": "\u2022 AI automatically identifies surfaces, lighting, and shadows to place products in a user's photo with high realism, which is very close to the requested feature.",
+                                    "type": "Text"
+                                  }
+                                ]
+                              },
+                              {
+                                "cssClass": "gap-1 min-w-[220px] flex-1",
+                                "type": "Column",
+                                "children": [
+                                  {
+                                    "cssClass": "text-xs uppercase tracking-wide text-slate-700",
+                                    "type": "Label",
+                                    "text": "Target market",
+                                    "optional": false
+                                  },
+                                  {
+                                    "cssClass": "text-sm text-slate-800",
+                                    "content": "\u2022 Manufacturing Industries, Large Retailers, E-Commerce, Architects & Designers",
+                                    "type": "Text"
+                                  }
+                                ]
+                              },
+                              {
+                                "cssClass": "gap-1 min-w-[220px] flex-1",
+                                "type": "Column",
+                                "children": [
+                                  {
+                                    "cssClass": "text-xs uppercase tracking-wide text-slate-700",
+                                    "type": "Label",
+                                    "text": "Headquarters",
+                                    "optional": false
+                                  },
+                                  {
+                                    "cssClass": "text-sm text-slate-800",
+                                    "content": "\u2022 New Delhi, India",
+                                    "type": "Text"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "cssClass": "text-indigo-600 underline text-sm",
+                            "content": "https://nirwana.ai/",
+                            "type": "Text"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "AccordionItem",
+                    "title": "RoomGPT  \u00b7  Freemium model. Free for 2 redesigns/month. Paid plans are \u2026  \u00b7  New Jersey, United States",
+                    "children": [
+                      {
+                        "cssClass": "gap-4 pt-2",
+                        "type": "Column",
+                        "children": [
+                          {
+                            "cssClass": "text-sm text-slate-700",
+                            "content": "An AI interior designer tool that allows users to redesign their rooms by uploading a photo. It boasts over 2 million users.",
+                            "type": "Text"
+                          },
+                          {
+                            "cssClass": "gap-6 flex-wrap",
+                            "type": "Row",
+                            "children": [
+                              {
+                                "cssClass": "gap-1 min-w-[220px] flex-1",
+                                "type": "Column",
+                                "children": [
+                                  {
+                                    "cssClass": "text-xs uppercase tracking-wide text-emerald-700",
+                                    "type": "Label",
+                                    "text": "Strengths",
+                                    "optional": false
+                                  },
+                                  {
+                                    "cssClass": "text-sm text-slate-800",
+                                    "content": "\u2022 Strong social proof with over 2 million users.",
+                                    "type": "Text"
+                                  },
+                                  {
+                                    "cssClass": "text-sm text-slate-800",
+                                    "content": "\u2022 Simple, direct-to-consumer focus.",
+                                    "type": "Text"
+                                  }
+                                ]
+                              },
+                              {
+                                "cssClass": "gap-1 min-w-[220px] flex-1",
+                                "type": "Column",
+                                "children": [
+                                  {
+                                    "cssClass": "text-xs uppercase tracking-wide text-rose-700",
+                                    "type": "Label",
+                                    "text": "Weaknesses",
+                                    "optional": false
+                                  },
+                                  {
+                                    "cssClass": "text-sm text-slate-800",
+                                    "content": "\u2022 Pricing plans are not detailed on the homepage.",
+                                    "type": "Text"
+                                  },
+                                  {
+                                    "cssClass": "text-sm text-slate-800",
+                                    "content": "\u2022 Fewer features compared to B2B-focused platforms.",
+                                    "type": "Text"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "cssClass": "gap-6 flex-wrap",
+                            "type": "Row",
+                            "children": [
+                              {
+                                "cssClass": "gap-1 min-w-[220px] flex-1",
+                                "type": "Column",
+                                "children": [
+                                  {
+                                    "cssClass": "text-xs uppercase tracking-wide text-indigo-700",
+                                    "type": "Label",
+                                    "text": "Features",
+                                    "optional": false
+                                  },
+                                  {
+                                    "cssClass": "text-sm text-slate-800",
+                                    "content": "\u2022 AI Interior Designer",
+                                    "type": "Text"
+                                  },
+                                  {
+                                    "cssClass": "text-sm text-slate-800",
+                                    "content": "\u2022 Photo-based Redesign",
+                                    "type": "Text"
+                                  },
+                                  {
+                                    "cssClass": "text-sm text-slate-800",
+                                    "content": "\u2022 Transforms a room from a single photo, which is very close to the requested feature.",
+                                    "type": "Text"
+                                  }
+                                ]
+                              },
+                              {
+                                "cssClass": "gap-1 min-w-[220px] flex-1",
+                                "type": "Column",
+                                "children": [
+                                  {
+                                    "cssClass": "text-xs uppercase tracking-wide text-slate-700",
+                                    "type": "Label",
+                                    "text": "Target market",
+                                    "optional": false
+                                  },
+                                  {
+                                    "cssClass": "text-sm text-slate-800",
+                                    "content": "\u2022 Homeowners, Renters, DIY Decorators",
+                                    "type": "Text"
+                                  }
+                                ]
+                              },
+                              {
+                                "cssClass": "gap-1 min-w-[220px] flex-1",
+                                "type": "Column",
+                                "children": [
+                                  {
+                                    "cssClass": "text-xs uppercase tracking-wide text-slate-700",
+                                    "type": "Label",
+                                    "text": "Headquarters",
+                                    "optional": false
+                                  },
+                                  {
+                                    "cssClass": "text-sm text-slate-800",
+                                    "content": "\u2022 New Jersey, United States",
+                                    "type": "Text"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "cssClass": "text-indigo-600 underline text-sm",
+                            "content": "https://www.roomgpt.io/",
+                            "type": "Text"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "cssClass": "bg-white shadow-sm",
+                "type": "Card",
+                "children": [
+                  {
+                    "type": "CardHeader",
+                    "children": [
+                      {
+                        "type": "CardTitle",
+                        "content": "Market positioning"
+                      },
+                      {
+                        "content": "Synthesized by the agent across all profiles above.",
+                        "type": "Muted"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "CardContent",
+                    "children": [
+                      {
+                        "cssClass": "gap-4",
+                        "type": "Column",
+                        "children": [
+                          {
+                            "cssClass": "text-slate-800 leading-relaxed",
+                            "content": "The AI-powered room visualization market is bifurcated into two main segments: B2B enterprise solutions (like Roomvo, Wizart) and direct-to-consumer (D2C) apps (like RoomGPT). B2B players offer extensive features for retailers and manufacturers, including multi-surface visualization and e-commerce integration, but often have opaque pricing. D2C tools are simpler, focusing on ease of use for homeowners, but have more limited feature sets. Tile Vision AI appears to be entering as a specialized D2C tool.",
+                            "type": "Text"
+                          },
+                          {
+                            "cssClass": "gap-6 flex-wrap",
+                            "type": "Row",
+                            "children": [
+                              {
+                                "cssClass": "gap-1 min-w-[220px] flex-1",
+                                "type": "Column",
+                                "children": [
+                                  {
+                                    "cssClass": "text-xs uppercase tracking-wide text-emerald-700",
+                                    "type": "Label",
+                                    "text": "Differentiators",
+                                    "optional": false
+                                  },
+                                  {
+                                    "cssClass": "text-sm text-slate-800",
+                                    "content": "\u2022 Tile Vision AI's primary differentiator is its specific focus on tiles. While broad platforms can visualize many surface types, a dedicated tile visualizer can offer deeper, more realistic textures, patterns, and grout simulations, providing a superior experience for that specific use case. This niche focus allows it to compete with larger players by being the best solution for a particular job.",
+                                    "type": "Text"
+                                  }
+                                ]
+                              },
+                              {
+                                "cssClass": "gap-1 min-w-[220px] flex-1",
+                                "type": "Column",
+                                "children": [
+                                  {
+                                    "cssClass": "text-xs uppercase tracking-wide text-rose-700",
+                                    "type": "Label",
+                                    "text": "Threats",
+                                    "optional": false
+                                  },
+                                  {
+                                    "cssClass": "text-sm text-slate-800",
+                                    "content": "\u2022 The main threat is from larger, well-funded competitors (Wizart, Roomvo) who could improve their tile visualization modules to match Tile Vision AI's quality, effectively neutralizing its niche advantage. Additionally, the D2C space is crowded with free or low-cost apps like RoomGPT, making it difficult to attract users who are not specifically focused on a tile project.",
+                                    "type": "Text"
+                                  }
+                                ]
+                              },
+                              {
+                                "cssClass": "gap-1 min-w-[220px] flex-1",
+                                "type": "Column",
+                                "children": [
+                                  {
+                                    "cssClass": "text-xs uppercase tracking-wide text-indigo-700",
+                                    "type": "Label",
+                                    "text": "Opportunities",
+                                    "optional": false
+                                  },
+                                  {
+                                    "cssClass": "text-sm text-slate-800",
+                                    "content": "\u2022 A significant opportunity lies in B2B partnerships with tile manufacturers and retailers. By offering a white-labeled 'Tile Visualizer' for their websites, Tile Vision AI can leverage its specialized technology for a clear revenue stream. Another opportunity is to expand into adjacent materials like flooring, countertops, and backsplashes, gradually becoming the go-to visualizer for 'hard surfaces' in home renovation.",
+                                    "type": "Text"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}</script>
+</body>
+</html>

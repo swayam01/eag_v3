@@ -1,0 +1,31 @@
+[
+  {
+    "name": "VirtualTourEasy",
+    "website": "https://virtualtoureasy.com/",
+    "description": "VirtualTourEasy is an AI-powered platform that allows users to create immersive 360° virtual tours from various inputs, including a single 2D photograph. The tool uses AI to generate a full panoramic view from a standard photo, eliminating the need for a 360° camera. It targets a broad range of industries, including real estate, hospitality, and architecture.",
+    "pricing": "Offers a free plan (10 tours, VTE watermark). Paid plans start at $19/month ($15.20/month if billed annually) for more tours, storage, and AI credits.",
+    "features": [
+      "AI 360° Panorama Generation from a single 2D photo",
+      "Text-to-360° Scene Generation",
+      "AI Photo Enhancer (Upscaling, Noise Reduction)",
+      "Interactive Hotspots",
+      "Website Embedding",
+      "Video Export of Tours",
+      "Google Street View Publishing"
+    ],
+    "strengths": [
+      "Directly offers the rare feature of generating a full 360° tour from a single 2D photo.",
+      "No expensive 360° camera hardware required, lowering the barrier to entry.",
+      "Offers a free tier for users to try the service.",
+      "Provides a complete platform with hosting, sharing, and embedding tools."
+    ],
+    "weaknesses": [
+      "The primary focus is on real estate and hospitality, not specifically on interior material visualization (like tiles or flooring).",
+      "The quality of the AI-generated 360° view from a single photo may have limitations compared to true 360° photography.",
+      "Headquarters and company information are not readily available, which could be a concern for some enterprise customers."
+    ],
+    "target_market": "Real estate agents, hospitality industry (hotels, restaurants), architects, tourism, and retail.",
+    "headquarters": "",
+    "last_updated": "2026-05-01T12:47:14.847963+00:00"
+  }
+]

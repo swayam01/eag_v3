@@ -1,0 +1,54 @@
+{
+  "product": {
+    "url": "https://swayam01.github.io/tile-vision-website/",
+    "name": "Tile Vision AI",
+    "description": "An AI room/tile visualizer for homeowners, designers, and tile retailers."
+  },
+  "competitors": [
+    {
+      "last_updated": "2026-05-01T12:47:14.847963+00:00",
+      "target_market": "Real estate agents, hospitality industry (hotels, restaurants), architects, tourism, and retail.",
+      "description": "VirtualTourEasy is an AI-powered platform that allows users to create immersive 360° virtual tours from various inputs, including a single 2D photograph. The tool uses AI to generate a full panoramic view from a standard photo, eliminating the need for a 360° camera. It targets a broad range of industries, including real estate, hospitality, and architecture.",
+      "weaknesses": [
+        "The primary focus is on real estate and hospitality, not specifically on interior material visualization (like tiles or flooring).",
+        "The quality of the AI-generated 360° view from a single photo may have limitations compared to true 360° photography.",
+        "Headquarters and company information are not readily available, which could be a concern for some enterprise customers."
+      ],
+      "strengths": [
+        "Directly offers the rare feature of generating a full 360° tour from a single 2D photo.",
+        "No expensive 360° camera hardware required, lowering the barrier to entry.",
+        "Offers a free tier for users to try the service.",
+        "Provides a complete platform with hosting, sharing, and embedding tools."
+      ],
+      "website": "https://virtualtoureasy.com/",
+      "headquarters": "",
+      "name": "VirtualTourEasy",
+      "pricing": "Offers a free plan (10 tours, VTE watermark). Paid plans start at $19/month ($15.20/month if billed annually) for more tours, storage, and AI credits.",
+      "features": [
+        "AI 360° Panorama Generation from a single 2D photo",
+        "Text-to-360° Scene Generation",
+        "AI Photo Enhancer (Upscaling, Noise Reduction)",
+        "Interactive Hotspots",
+        "Website Embedding",
+        "Video Export of Tours",
+        "Google Street View Publishing"
+      ]
+    }
+  ],
+  "analysis": {
+    "differentiators": [
+      "Tile Vision AI is focused specifically on material visualization (tiles, flooring), a niche that general-purpose tour generators like VirtualTourEasy do not specifically cater to.",
+      "By focusing on designers, retailers, and homeowners, Tile Vision AI can build a more specialized and user-friendly experience compared to the broader real-estate focus of the competition."
+    ],
+    "summary": "The market for AI-powered tools that can generate a full, navigable 360° virtual tour from a single 2D photo is extremely niche. After a comprehensive search based on the user's specific criteria, only one direct competitor, VirtualTourEasy, was identified. Most tools in the 'AI interior design' space focus on re-styling a static 2D image, while traditional virtual tour software relies on stitching multiple 360° photos or complex 3D models. This represents a significant opportunity for a tool that can master this 'one-shot' 360° tour generation, especially if tailored to specific industries like interior surface visualization.",
+    "opportunities": [
+      "There is a clear gap in the market for a tool that perfects this feature specifically for the interior design and home renovation market.",
+      "Partnering with tile and flooring manufacturers to offer a branded version of the tool could be a powerful go-to-market strategy."
+    ],
+    "threats": [
+      "VirtualTourEasy, or a similar new entrant, could add specific features for material visualization, leveraging their existing 360° generation technology to enter the market.",
+      "Advances in generative AI could make this 'one-shot' 360° technology more common, increasing competition rapidly."
+    ]
+  },
+  "updated_at": "2026-05-01T12:47:33.156847+00:00"
+}
