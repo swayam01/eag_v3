@@ -5,6 +5,24 @@ const PRICE_HISTORY_KEY = "marketPulsePriceHistory";
 const SETTINGS_KEY = "marketPulseSettings";
 const OUNCE_TO_GRAMS = 31.1035;
 
+// Reference snapshot: 18 April 2026 market close. Seeded once so calc_change has a
+// prior-day baseline to compare against on first run.
+const SEED_HISTORY = [
+  { asset: "gold", price: 144339, ts: 1776585443689 },
+  { asset: "silver", price: 241843, ts: 1776585443901 },
+  { asset: "usd_inr", price: 92.9224, ts: 1776585443906 }
+];
+
+export async function ensureSeedHistory() {
+  const data = await chrome.storage.local.get(PRICE_HISTORY_KEY);
+  const history = Array.isArray(data[PRICE_HISTORY_KEY]) ? data[PRICE_HISTORY_KEY] : [];
+  const present = new Set(history.map((h) => `${h.asset}:${h.ts}`));
+  const additions = SEED_HISTORY.filter((s) => !present.has(`${s.asset}:${s.ts}`));
+  if (!additions.length) return;
+  const merged = [...history, ...additions].sort((a, b) => a.ts - b.ts).slice(-500);
+  await chrome.storage.local.set({ [PRICE_HISTORY_KEY]: merged });
+}
+
 // ---------- Gemini function declarations ----------
 export const TOOL_DECLARATIONS = [
   {
@@ -24,7 +42,7 @@ export const TOOL_DECLARATIONS = [
   },
   {
     name: "calc_change",
-    description: "Compute the change for an asset from locally stored history. Returns day-over-day %, 7-day %, and the raw prices used. Returns zeros if no history exists yet.",
+    description: "Compute the change for an asset against the seeded reference baseline (the earliest entry in history, i.e. the 18 April 2026 market close). Returns sinceReferencePct, the latest price, and the reference price/date.",
     parameters: {
       type: "object",
       properties: {
@@ -110,19 +128,25 @@ async function calc_change({ asset }) {
   const data = await chrome.storage.local.get(PRICE_HISTORY_KEY);
   const history = (data[PRICE_HISTORY_KEY] || []).filter((h) => h.asset === asset);
   if (history.length < 2) {
-    return { asset, dayOverDayPct: 0, sevenDayPct: 0, latest: history.at(-1)?.price ?? null, note: "Not enough history yet — save more snapshots over time." };
+    return { asset, sinceReferencePct: 0, latest: history.at(-1)?.price ?? null, note: "Not enough history yet — save more snapshots over time." };
   }
   history.sort((a, b) => a.ts - b.ts);
   const latest = history.at(-1);
-  const now = latest.ts;
-  const oneDayAgo = findClosest(history, now - 86400000);
-  const sevenDayAgo = findClosest(history, now - 7 * 86400000);
+  // Reference baseline = the earliest entry in history. After ensureSeedHistory() runs,
+  // this is the 18 April 2026 seed snapshot — so percentages are reported as change
+  // vs the seeded reference, not vs an arbitrary recent run.
+  const reference = history[0];
+  const referenceDate = new Date(reference.ts).toISOString().slice(0, 10);
+  const latestDate = new Date(latest.ts).toISOString().slice(0, 10);
   return {
     asset,
     latest: latest.price,
-    dayOverDayPct: pct(latest.price, oneDayAgo?.price),
-    sevenDayPct: pct(latest.price, sevenDayAgo?.price),
-    samplesUsed: { latest: latest.ts, oneDayAgo: oneDayAgo?.ts, sevenDayAgo: sevenDayAgo?.ts }
+    latestDate,
+    referencePrice: reference.price,
+    referenceDate,
+    sinceReferencePct: pct(latest.price, reference.price),
+    samplesUsed: { latest: latest.ts, reference: reference.ts },
+    note: `Percentage is change vs ${referenceDate} reference baseline; latest reading is from ${latestDate}.`
   };
 }
 
@@ -144,19 +168,28 @@ async function send_telegram({ message }) {
     throw new Error("Telegram not configured. Paste bot token + chat ID in Settings.");
   }
   const url = `https://api.telegram.org/bot${token}/sendMessage`;
-  const res = await fetch(url, {
+  const text = message.slice(0, 4000);
+
+  const post = (body) => fetch(url, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      chat_id: chatId,
-      text: message.slice(0, 4000),
-      parse_mode: "Markdown"
-    })
+    body: JSON.stringify(body)
   });
-  const raw = await res.text();
+
+  // First try Markdown. If Telegram rejects it (usually a 400 for unbalanced *_`
+  // or unsupported syntax like tables), fall back to plain text so the report
+  // still gets delivered.
+  let res = await post({ chat_id: chatId, text, parse_mode: "Markdown" });
+  let raw = await res.text();
+  let usedFallback = false;
+  if (!res.ok && res.status === 400) {
+    usedFallback = true;
+    res = await post({ chat_id: chatId, text });
+    raw = await res.text();
+  }
   if (!res.ok) throw new Error(`Telegram ${res.status}: ${raw}`);
   const parsed = JSON.parse(raw);
-  return { ok: true, messageId: parsed?.result?.message_id };
+  return { ok: true, messageId: parsed?.result?.message_id, sentAsPlainText: usedFallback };
 }
 
 // ---------- Helpers ----------
@@ -184,16 +217,6 @@ async function appendHistory(asset, price) {
   history.push({ asset, price, ts: Date.now() });
   const trimmed = history.slice(-500);
   await chrome.storage.local.set({ [PRICE_HISTORY_KEY]: trimmed });
-}
-
-function findClosest(history, targetTs) {
-  let best = null;
-  let bestDiff = Infinity;
-  for (const h of history) {
-    const diff = Math.abs(h.ts - targetTs);
-    if (diff < bestDiff) { bestDiff = diff; best = h; }
-  }
-  return best;
 }
 
 function pct(current, previous) {

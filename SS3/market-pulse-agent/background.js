@@ -3,6 +3,7 @@
 // because the popup window closes and would abort long-running fetch chains).
 
 import { runAgent } from "./agent.js";
+import { ensureSeedHistory } from "./tools.js";
 import { loadEnv } from "./env.js";
 
 const SETTINGS_KEY = "marketPulseSettings";
@@ -14,10 +15,12 @@ const DEFAULT_PROMPT = "Run today's market pulse briefing and send it to Telegra
 // ---------- Install / startup ----------
 
 chrome.runtime.onInstalled.addListener(async () => {
+  await ensureSeedHistory();
   await reconcileAlarm();
 });
 
 chrome.runtime.onStartup.addListener(async () => {
+  await ensureSeedHistory();
   await reconcileAlarm();
 });
 
