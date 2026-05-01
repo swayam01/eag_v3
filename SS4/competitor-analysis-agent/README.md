@@ -9,6 +9,10 @@ Built around a custom **MCP server** with four tools and driven by a
 The flagship demo is **Tile Vision AI** — but the agent has zero hardcoded
 references to it; swap the prompt and it analyzes any product.
 
+## Demo video
+
+https://youtu.be/5eVxv6zfzvc
+
 ## Architecture
 
 ```mermaid
