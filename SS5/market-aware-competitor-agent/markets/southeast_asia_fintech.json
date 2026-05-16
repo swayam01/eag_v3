@@ -1,0 +1,13 @@
+{
+  "region": "Southeast Asia",
+  "countries": ["Singapore", "Indonesia", "Vietnam", "Philippines", "Thailand", "Malaysia"],
+  "industry_vertical": "consumer fintech / digital wallets",
+  "customer_segment": "B2C",
+  "pricing_tier": "budget",
+  "channels": ["iOS", "Android", "merchant QR"],
+  "language": "English",
+  "geo_strictness": "primary",
+  "must_have_keywords": ["wallet", "payments", "QR"],
+  "exclude_keywords": ["crypto-only exchange"],
+  "notes": "SEA fintech is mobile-first, QR-driven, and heavily regulated per country (MAS, OJK, BSP). Local agent networks matter more than slick web UX."
+}

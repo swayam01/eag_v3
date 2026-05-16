@@ -1,0 +1,13 @@
+{
+  "region": "North America",
+  "countries": ["United States", "Canada"],
+  "industry_vertical": "B2B CRM SaaS",
+  "customer_segment": "B2B",
+  "pricing_tier": "enterprise",
+  "channels": ["web app", "mobile", "Salesforce AppExchange"],
+  "language": "English",
+  "geo_strictness": "primary",
+  "must_have_keywords": ["CRM", "pipeline", "enterprise"],
+  "exclude_keywords": ["dating", "personal contacts"],
+  "notes": "Enterprise CRM buyers in NA care about SOC2/HIPAA, deep Salesforce/HubSpot integrations, and seat-based pricing with annual contracts. Free tiers are a signal of SMB-not-enterprise positioning."
+}

@@ -1,0 +1,11 @@
+{
+  "explicit_reasoning": true,
+  "structured_output": true,
+  "tool_separation": true,
+  "conversation_loop": true,
+  "instructional_framing": true,
+  "internal_self_checks": true,
+  "reasoning_type_awareness": true,
+  "fallbacks": true,
+  "overall_clarity": "Excellent. The prompt enforces a labelled per-turn protocol (THOUGHT/PLAN/SELF_CHECK/FALLBACK/CONFIDENCE), tags each THOUGHT with a reasoning type, separates reasoning from native function calls, supplies an explicit FINAL block for termination, and gives concrete fallback rules for every failure mode. The MARKET_CONFIG block keeps the agent grounded across turns, reducing drift."
+}
